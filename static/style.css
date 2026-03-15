@@ -1,0 +1,32 @@
+body{
+
+font-family: Arial;
+background:#f2f5f9;
+
+}
+
+.container{
+
+width:400px;
+margin:auto;
+text-align:center;
+
+}
+
+.upload-box{
+
+border:2px dashed #ccc;
+padding:40px;
+background:white;
+
+}
+
+.qr-btn{
+
+background:#0d47a1;
+color:white;
+padding:15px;
+border:none;
+border-radius:10px;
+
+}
