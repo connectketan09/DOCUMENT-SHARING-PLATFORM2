@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from datetime import datetime, timedelta
 
 class Document(models.Model):
 
@@ -11,7 +12,9 @@ class Document(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    expires_at = models.DateTimeField()
+    expires_at = models.DateTimeField(
+        default=datetime.now() + timedelta(hours=24)
+    )
 
     def __str__(self):
         return str(self.vault_id)

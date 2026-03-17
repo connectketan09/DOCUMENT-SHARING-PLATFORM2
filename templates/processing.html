@@ -1,5 +1,31 @@
-<h1>Securing your document...</h1>
 
-<div class="loader"></div>
+<!DOCTYPE html>
+<html>
+<body style="text-align:center;font-family:Inter;background:#F5F7FB;padding:40px">
 
-<p>Encrypting file and generating vault key</p> 
+<h2>Securing your document...</h2>
+
+<div style="width:80px;height:80px;border:6px solid #ddd;border-top:6px solid #6EDBD5;border-radius:50%;margin:auto;animation:spin 1s linear infinite"></div>
+
+<div style="margin-top:20px;background:#ddd;height:4px;border-radius:10px">
+<div id="bar" style="height:4px;width:0%;background:#6EDBD5"></div>
+</div>
+
+<p id="p">0%</p>
+
+<script>
+let i=0;
+let x=setInterval(()=>{
+if(i>=100){clearInterval(x);window.location='/result/';}
+i++;
+document.getElementById('bar').style.width=i+'%';
+document.getElementById('p').innerText=i+'%';
+},20);
+</script>
+
+<style>
+@keyframes spin{100%{transform:rotate(360deg)}}
+</style>
+
+</body>
+</html>

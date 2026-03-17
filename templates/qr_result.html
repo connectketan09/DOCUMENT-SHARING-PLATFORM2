@@ -1,7 +1,18 @@
-<h1>Your Secure QR</h1>
+<!DOCTYPE html>
+<html>
+<body style="text-align:center;font-family:Inter;background:#F5F7FB;padding:20px">
 
-<img src="{{ qr_image }}">
+<div style="background:#1E3A8A;color:white;padding:10px;border-radius:20px;display:inline-block">
+QR GENERATED SUCCESSFULLY
+</div>
 
-<p>Vault ID : {{ vault_id }}</p>
+<h2>Your Secure QR</h2>
 
-<p>Expires in 24 hours</p>
+<div style="background:white;padding:20px;border-radius:20px;margin-top:20px">
+<img src="{{ qr_url }}" width="200">
+</div>
+
+<p>Scan to download file</p>
+
+</body>
+</html>
