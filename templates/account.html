@@ -14,11 +14,35 @@
 <div class="container">
     
     <h1>👤 Account</h1>
-    <p>Welcome to your DocShare account</p>
+    <p>Upload and manage your files</p>
 
+    <!-- ✅ Upload form -->
     <div class="upload-box">
-        <p>You can manage your files here</p>
-        <a href="/" class="qr-btn">Go to Home</a>
+        <form action="/upload/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="document" required>
+            <br><br>
+            <button type="submit" class="qr-btn">Upload File</button>
+        </form>
+    </div>
+
+    <br>
+
+    <!-- ✅ File list -->
+    <div class="upload-box">
+        <h3>Your Files</h3>
+
+        {% if files %}
+            {% for file in files %}
+                {% if not file.startswith('qr_') %}
+                    <p>{{ file }}</p>
+                    <a href="/download/{{ file }}" class="qr-btn">Download</a>
+                    <br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No files uploaded yet</p>
+        {% endif %}
     </div>
 
 </div>
