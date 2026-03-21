@@ -11,7 +11,16 @@ def home(request):
 
 # ✅ ADD THIS (fix for /account)
 def account(request):
-    return render(request, 'account.html')
+    files = []
+
+    media_path = 'media'
+
+    if os.path.exists(media_path):
+        files = os.listdir(media_path)
+
+    return render(request, 'account.html', {
+        'files': files
+    })
 
 
 def upload_file(request):
