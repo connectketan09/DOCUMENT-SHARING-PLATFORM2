@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 from django.http import FileResponse
@@ -8,6 +7,11 @@ import qrcode
 
 def home(request):
     return render(request, 'upload.html')
+
+
+# ✅ ADD THIS (fix for /account)
+def account(request):
+    return render(request, 'account.html')
 
 
 def upload_file(request):
@@ -34,7 +38,7 @@ def qr_result(request):
     if not filename:
         return redirect('/')
 
-    # ✅ QR LINK (works locally, deploy later for mobile)
+    # QR link
     file_url = request.build_absolute_uri('/download/' + filename)
 
     qr = qrcode.make(file_url)
